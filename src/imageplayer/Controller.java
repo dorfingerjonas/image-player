@@ -1,5 +1,6 @@
 package imageplayer;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,5 +24,13 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         statusLabel.setText("application started ...");
+    }
+
+    public void onStartPressed(ActionEvent actionEvent) {
+        
+    }
+
+    public void onLoadButtonPressed(ActionEvent actionEvent) {
+
     }
 }
