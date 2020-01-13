@@ -26,10 +26,12 @@ public class Controller implements Initializable {
         statusLabel.setText("application started ...");
     }
 
+    @FXML
     public void onStartPressed(ActionEvent actionEvent) {
-        
+
     }
 
+    @FXML
     public void onLoadButtonPressed(ActionEvent actionEvent) {
 
     }
