@@ -9,6 +9,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,7 +44,10 @@ public class Controller implements Initializable {
     public void onLoadButtonPressed(ActionEvent actionEvent) {
         statusLabel.setText("on load button pressed ...");
         FileChooser fileChooser = new FileChooser();
-
         fileChooser.setTitle("selectImage");
+        fileChooser.setInitialDirectory(new File("."));
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Image Files", "*.[Jj][Pp][Gg]", "*.[Pp][Nn][Gg]");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File imageFile = fileChooser.showOpenDialog(null);
     }
 }
