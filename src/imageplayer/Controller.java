@@ -3,10 +3,13 @@ package imageplayer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -49,5 +52,26 @@ public class Controller implements Initializable {
         FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.JPG", "*.PNG", "*.JPEG", "*.jpeg");
         fileChooser.getExtensionFilters().add(extensionFilter);
         File imageFile = fileChooser.showOpenDialog(null);
+
+        if (imageFile != null) {
+            statusLabel.setText(imageFile.getName());
+            Image image = new Image(String.valueOf(imageFile.toURI()));
+            setImage(image);
+        }
+    }
+
+    private void setImage(Image image) {
+        imageView.setImage(image);
+
+        int width = (int) image.getWidth();
+        int height = (int) image.getHeight();
+
+        imageView.setFitWidth(Math.min(width, 1000));
+        imageView.setFitHeight(Math.min(height, 600));
+
+        Scene scene = imageView.getScene();
+        BorderPane borderPane = (BorderPane) imageView.getParent();
+        borderPane.setPrefSize(Math.min(width, 1000), Math.min(height, 600));
+        scene.getWindow().sizeToScene();
     }
 }
