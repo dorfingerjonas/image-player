@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,5 +42,8 @@ public class Controller implements Initializable {
     @FXML
     public void onLoadButtonPressed(ActionEvent actionEvent) {
         statusLabel.setText("on load button pressed ...");
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("selectImage");
     }
 }
