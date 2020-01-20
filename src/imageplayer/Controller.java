@@ -43,6 +43,7 @@ public class Controller implements Initializable {
     @FXML
     public void onStartPressed(ActionEvent actionEvent) {
         statusLabel.setText("on start button pressed ...");
+        imageDiscoverer.discover();
     }
 
     @FXML
