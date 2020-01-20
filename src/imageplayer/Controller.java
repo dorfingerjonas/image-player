@@ -52,7 +52,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void onPausePressed(ActionEvent actionEvent) {
-
+        // insert your code here
     }
 
     @FXML
