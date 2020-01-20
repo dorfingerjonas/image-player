@@ -49,7 +49,9 @@ public class Controller implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("selectImage");
         fileChooser.setInitialDirectory(new File("."));
-        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.JPG", "*.PNG", "*.JPEG", "*.jpeg");
+        FileChooser.ExtensionFilter extensionFilter =
+                new FileChooser.ExtensionFilter("Image Files",
+                        "*.jpg", "*.png", "*.JPG", "*.PNG", "*.JPEG", "*.jpeg");
         fileChooser.getExtensionFilters().add(extensionFilter);
         File imageFile = fileChooser.showOpenDialog(null);
 
