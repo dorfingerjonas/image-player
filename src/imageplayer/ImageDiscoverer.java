@@ -1,5 +1,6 @@
 package imageplayer;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
@@ -38,10 +39,13 @@ public class ImageDiscoverer implements Runnable {
 
     public void discover() {
         for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
-                Color pixel = pixelReader.getColor(col, row);
-                pixelWriter.setColor(col, row, pixel);
-            }
+            final int localRow = row;
+            Platform.runLater(() -> {
+                for (int col = 0; col < width; col++) {
+                    Color pixel = pixelReader.getColor(col, localRow);
+                    pixelWriter.setColor(col, localRow, pixel);
+                }
+            });
 
             try {
                 Thread.sleep(30);
