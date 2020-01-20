@@ -34,6 +34,7 @@ public class Controller implements Initializable {
     public Button loadButton;
 
     private ImageDiscoverer imageDiscoverer;
+    private Thread discoverThread;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,7 +44,9 @@ public class Controller implements Initializable {
     @FXML
     public void onStartPressed(ActionEvent actionEvent) {
         statusLabel.setText("on start button pressed ...");
-        imageDiscoverer.discover();
+        // imageDiscoverer.discover();
+        discoverThread = new Thread(imageDiscoverer);
+        discoverThread.start();
     }
 
     @FXML
