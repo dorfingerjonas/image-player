@@ -6,7 +6,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-public class ImageDiscoverer {
+public class ImageDiscoverer implements Runnable {
     private int width;
     private int height;
     private Image sourceImage;
@@ -49,5 +49,10 @@ public class ImageDiscoverer {
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public void run() {
+        this.discover();
     }
 }
