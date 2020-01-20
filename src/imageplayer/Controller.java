@@ -46,8 +46,8 @@ public class Controller implements Initializable {
         statusLabel.setText("on start button pressed ...");
         // imageDiscoverer.discover();
         discoverThread = new Thread(imageDiscoverer);
+        progressBar.setProgress(0);
         discoverThread.start();
-        progressBar.setProgress(0.5);
     }
 
     @FXML

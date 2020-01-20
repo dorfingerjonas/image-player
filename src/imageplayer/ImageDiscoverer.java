@@ -48,6 +48,8 @@ public class ImageDiscoverer implements Runnable {
                     Color pixel = pixelReader.getColor(col, localRow);
                     pixelWriter.setColor(col, localRow, pixel);
                 }
+
+                progressBar.setProgress(((double) localRow) / height);
             });
 
             try {
