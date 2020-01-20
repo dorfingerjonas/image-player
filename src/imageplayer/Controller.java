@@ -51,6 +51,11 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    public void onPausePressed(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
     public void onLoadButtonPressed(ActionEvent actionEvent) {
         statusLabel.setText("on load button pressed ...");
         FileChooser fileChooser = new FileChooser();
