@@ -33,6 +33,8 @@ public class Controller implements Initializable {
     @FXML
     public Button loadButton;
 
+    private ImageDiscoverer imageDiscoverer;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         statusLabel.setText("application started ...");
@@ -63,7 +65,8 @@ public class Controller implements Initializable {
     }
 
     private void setImage(Image image) {
-        imageView.setImage(image);
+        imageDiscoverer = new ImageDiscoverer(image);
+        imageView.setImage(imageDiscoverer.getDestinationImage());
 
         int width = (int) image.getWidth();
         int height = (int) image.getHeight();
