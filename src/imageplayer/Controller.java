@@ -47,6 +47,7 @@ public class Controller implements Initializable {
         // imageDiscoverer.discover();
         discoverThread = new Thread(imageDiscoverer);
         discoverThread.start();
+        progressBar.setProgress(0.5);
     }
 
     @FXML
@@ -69,7 +70,7 @@ public class Controller implements Initializable {
     }
 
     private void setImage(Image image) {
-        imageDiscoverer = new ImageDiscoverer(image);
+        imageDiscoverer = new ImageDiscoverer(image, progressBar);
         imageView.setImage(imageDiscoverer.getDestinationImage());
 
         int width = (int) image.getWidth();

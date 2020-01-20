@@ -1,6 +1,7 @@
 package imageplayer;
 
 import javafx.application.Platform;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
@@ -14,9 +15,11 @@ public class ImageDiscoverer implements Runnable {
     private WritableImage destinationImage;
     private PixelWriter pixelWriter;
     private PixelReader pixelReader;
+    private ProgressBar progressBar;
 
-    public ImageDiscoverer(Image sourceImage) {
+    public ImageDiscoverer(Image sourceImage, ProgressBar progressBar) {
         this.sourceImage = sourceImage;
+        this.progressBar = progressBar;
         width = (int) sourceImage.getWidth();
         height = (int) sourceImage.getHeight();
         destinationImage = new WritableImage(width, height);
