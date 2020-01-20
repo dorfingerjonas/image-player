@@ -42,6 +42,12 @@ public class ImageDiscoverer {
                 Color pixel = pixelReader.getColor(col, row);
                 pixelWriter.setColor(col, row, pixel);
             }
+
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
