@@ -59,6 +59,9 @@ public class Controller implements Initializable {
     @FXML
     public void onResumePressed(ActionEvent actionEvent) {
         imageDiscoverer.setPaused(false);
+        synchronized (imageDiscoverer) {
+            imageDiscoverer.notify();
+        }
         statusLabel.setText("resumed");
     }
 
