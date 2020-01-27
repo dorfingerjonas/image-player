@@ -52,13 +52,14 @@ public class Controller implements Initializable {
 
     @FXML
     public void onPausePressed(ActionEvent actionEvent) throws InterruptedException {
-        // insert your code here
+        imageDiscoverer.setPaused(true);
         statusLabel.setText("paused");
     }
 
     @FXML
     public void onResumePressed(ActionEvent actionEvent) {
-
+        imageDiscoverer.setPaused(false);
+        statusLabel.setText("resumed");
     }
 
     @FXML
