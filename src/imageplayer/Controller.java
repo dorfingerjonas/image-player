@@ -51,8 +51,14 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void onPausePressed(ActionEvent actionEvent) {
+    public void onPausePressed(ActionEvent actionEvent) throws InterruptedException {
         // insert your code here
+        statusLabel.setText("paused");
+    }
+
+    @FXML
+    public void onResumePressed(ActionEvent actionEvent) {
+
     }
 
     @FXML
